@@ -62,7 +62,7 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	{ run_command,  "  [VOL  %4s]",      "pamixer --get-volume-human" },
+	{ run_command,  "  [VOL  %4s]",   "pamixer --get-volume-human" },
 	{ cpu_perc,     "  [CPU  %s%%]",  NULL	                        },
 	{ ram_perc,     "  [RAM  %s%%]",  NULL	                        },
     { battery_perc, "  [BAT  %s%%]", "BAT1"                        },

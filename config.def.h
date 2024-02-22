@@ -64,6 +64,13 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	{ run_command,
+	  "  [VOL %4s]",
+	  "pactl -f json list sinks | jq -r '.[] | select(.state == \"RUNNING\" "
+	  "and .mute == false) | .volume | to_entries | first | "
+	  ".value.value_percent'" },
+	{ cpu_perc, "  [CPU  %s%%]", NULL },
+	{ ram_perc, "  [RAM 󰚩 %s%%]", NULL },
+	{ battery_perc, "  [BAT  %s%%]", "BAT1" },
+	{ datetime, "  %s  ", "%a %b %d %r" }
 };
